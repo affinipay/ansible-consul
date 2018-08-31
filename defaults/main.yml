@@ -67,6 +67,7 @@ consul_upstart_start_on: start on runlevel [345]
 consul_upstart_stop_on: stop on runlevel [!345]
 
 consul_is_server: false
+consul_mutual_tls: true
 
 consul_domain: consul.
 
