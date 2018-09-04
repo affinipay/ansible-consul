@@ -88,7 +88,6 @@
   "cert_file": "{{ consul_cert_file }}",
   "key_file": "{{ consul_key_file }}",
   "ca_file": "{{ consul_ca_file }}",
-  "verify_incoming": true,
   "verify_outgoing": true,
   "verify_server_hostname": {{ consul_verify_server_hostname|lower }},
 {% endif %}
@@ -97,6 +96,9 @@
   "key_file": "{{ consul_key_file }}",
   "ca_file": "{{ consul_ca_file }}",
   "verify_outgoing": true,
+{% endif %}
+{% if consul_mutual_tls and consul_ca_file is defined %}
+  "verify_incoming": true,
 {% endif %}
   "ports": {
     "dns": {{ consul_port_dns }},
